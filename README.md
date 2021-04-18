@@ -10,11 +10,11 @@ This file is used to implement the ConnectedComponent class
 
 ### PGMImageProcessor.h
 
-This file is used to declare the PGMIMageProcessor class
+This file is used to declare the PGMImageProcessor class
 
 ### PGMImageProcessor.cpp
 
-This file is used to implement the PGMIMageProcessor class
+This file is used to implement the PGMImageProcessor class
 
 ### Driver.cpp
 

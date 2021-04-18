@@ -1,4 +1,4 @@
-#ifndef PGMImageProcessor _h
+#ifndef PGMImageProcessor_h
 #define PGMImageProcessor_h
 
 namespace pltoya001 {
