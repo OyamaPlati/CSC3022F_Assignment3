@@ -15,8 +15,11 @@ namespace pltoya001 {
 
         PGMImageProcessor::PGMImageProcessor (const std::string inFileName, int minValidSize, int maxValidSize, unsigned char threshold, const std::string outFileName) : inFileName(inFileName), minValidSize(minValidSize), maxValidSize(maxValidSize), threshold(threshold), outFileName(outFileName) {
  		// Default Constructor
-        	//PGMImageProcessor (const PGMImageProcessor & rhs); // Copy Constructor
         }
+
+     	PGMImageProcessor::PGMImageProcessor (const PGMImageProcessor & rhs) : inFileName(inFileName), minValidSize(minValidSize), maxValidSize(maxValidSize), threshold(threshold), outFileName(outFileName) {
+ 			// Copy Constructor
+	}
 
 	PGMImageProcessor::PGMImageProcessor (PGMImageProcessor && rhs) {
 		 // Move Constructor
@@ -33,6 +36,7 @@ namespace pltoya001 {
 
 	PGMImageProcessor::~PGMImageProcessor () {
 		// Destructor
+		std::cout << "Destructor called. PGMImageProcessor object deleted." << std::endl;
 	}
 
         const std::string & PGMImageProcessor::getInFileName() {
