@@ -15,7 +15,7 @@ namespace pltoya001 {
 	}
 
 	/* Copy Assignment Operator */
-	ConnectedComponent::ConnectedComponent & operator = (const ConnectedComponent & rhs) {
+	ConnectedComponent & ConnectedComponent::operator = (const ConnectedComponent & rhs) {
 		// Guard self assignment
     		if (this == &rhs) {
         		return *this;
@@ -29,7 +29,7 @@ namespace pltoya001 {
 	}
 
 	/* Move Assignment Operator */
-	ConnectedComponent::ConnectedComponent & operator = (ConnectedComponent && rhs) {
+	ConnectedComponent & ConnectedComponent::operator = (ConnectedComponent && rhs) {
 		// Guard self assignment
     		if (this == &rhs) {
         		return *this;
