@@ -21,16 +21,31 @@ namespace pltoya001 {
  			// Copy Constructor
 	}
 
-	PGMImageProcessor::PGMImageProcessor (PGMImageProcessor && rhs) {
+	PGMImageProcessor::PGMImageProcessor (PGMImageProcessor && rhs) : inFileName(inFileName), minValidSize(minValidSize), maxValidSize(maxValidSize), threshold(threshold), outFileName(outFileName) {
 		 // Move Constructor
 	}
 
         // Copy and Move Assignment Operators
         PGMImageProcessor & PGMImageProcessor::operator = (const PGMImageProcessor & rhs) {
+		if (this == &rhs) { return *this; }
+
+		inFileName = rhs.inFileName;
+		minValidSize = rhs.minValidSize;
+		maxValidSize = rhs.maxValidSize;
+		outFileName = rhs.outFileName;
+
 		return *this;
 	}
 
 	PGMImageProcessor & PGMImageProcessor::operator = (PGMImageProcessor && rhs) {
+		if (this == &rhs) { return *this; }
+
+		inFileName = rhs.inFileName;
+		minValidSize = rhs.minValidSize;
+		maxValidSize = rhs.maxValidSize;
+		outFileName = rhs.outFileName;
+		*this = std::move (rhs);
+
 		return *this;
 	}
 
