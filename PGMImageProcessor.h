@@ -2,7 +2,15 @@
 #define PGMImageProcessor_h
 
 #include "ConnectedComponent.h"
+#include <vector>
 #include <string>
+#include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <fstream>
+#include <sstream>
+#include <algorithm>
 
 namespace pltoya001 {
 

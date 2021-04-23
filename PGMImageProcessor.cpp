@@ -1,6 +1,4 @@
 #include "PGMImageProcessor.h"
-#include <iostream>
-#include <algorithm>
 
 namespace pltoya001 {
 	/*std::string inFileName;
