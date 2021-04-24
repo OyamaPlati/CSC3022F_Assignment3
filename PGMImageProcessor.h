@@ -11,6 +11,9 @@
 #include <fstream>
 #include <sstream>
 #include <algorithm>
+#include <queue>
+#include <memory>
+#include <bits/stdc++.h>
 
 #define MAX_LINE_LENGTH 1000
 
@@ -82,6 +85,11 @@ namespace pltoya001 {
 		   	 print out to std::cout: component ID, number of pixels
 			*/
 			void printComponentData(const ConnectedComponent & theComponent);
+
+			// Check if a cell is to be visited or not
+			bool isValid(bool ** vis, int row, int col);
+			// Perform the breadth first search traversal
+			void traverse(int **grid, bool **vis, int row, int col);
 	};
 }
 #endif
