@@ -86,6 +86,9 @@ namespace pltoya001 {
 			*/
 			void printComponentData(const ConnectedComponent & theComponent);
 
+			// Create binary image
+			int ** thresholding (int ** inputImage, int threshold, int height, int width);
+
 			// Check if a cell is to be visited or not
 			bool isValid(bool ** vis, int row, int col, int h, int w);
 			// Perform the breadth first search traversal

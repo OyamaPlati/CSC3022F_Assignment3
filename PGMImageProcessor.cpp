@@ -116,6 +116,23 @@ namespace pltoya001 {
         */
         void PGMImageProcessor::printComponentData(const ConnectedComponent & theComponent) { }
 
+	// Create binary image
+	int ** PGMImageProcessor::thresholding (int ** inputImage, int threshold, int height, int width) {
+		int ** result = new int * [height];
+		for (int row = 0; row < height; ++row) {
+			result [row] = new int [width];
+			for (int col = 0; col < width; ++col) {
+				if (inputImage[row][col] < threshold) {
+					result[row][col] = 0; // black
+				}
+				else {
+					result[row][col] = 255; // white
+				}
+			}
+		}
+		return result;
+	}
+
 	// Check if a cell is to be visited or not
 	bool PGMImageProcessor::isValid(bool ** vis, int row, int col, int h, int w) {
 		// If cell lies out of bounds
@@ -129,7 +146,5 @@ namespace pltoya001 {
 	}
 
 	// Perform the breadth first search traversal
-	void PGMImageProcessor::traverse(int **grid, bool **vis, int row, int col, int h, int w) {
-
-	}
+	void PGMImageProcessor::traverse(int **grid, bool **vis, int row, int col, int h, int w) {}
 }
