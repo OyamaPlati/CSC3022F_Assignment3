@@ -12,6 +12,8 @@
 #include <sstream>
 #include <algorithm>
 
+#define MAX_LINE_LENGTH 1000
+
 namespace pltoya001 {
 
 	class PGMImageProcessor {
