@@ -87,9 +87,9 @@ namespace pltoya001 {
 			void printComponentData(const ConnectedComponent & theComponent);
 
 			// Check if a cell is to be visited or not
-			bool isValid(bool ** vis, int row, int col);
+			bool isValid(bool ** vis, int row, int col, int h, int w);
 			// Perform the breadth first search traversal
-			void traverse(int **grid, bool **vis, int row, int col);
+			void traverse(int **grid, bool **vis, int row, int col, int h, int w);
 	};
 }
 #endif

@@ -115,4 +115,21 @@ namespace pltoya001 {
            print out to std::cout: component ID, number of pixels
         */
         void PGMImageProcessor::printComponentData(const ConnectedComponent & theComponent) { }
+
+	// Check if a cell is to be visited or not
+	bool PGMImageProcessor::isValid(bool ** vis, int row, int col, int h, int w) {
+		// If cell lies out of bounds
+    		if (row < 0 || col < 0 || row >= h || col >= w) { return false; }
+
+    		// If cell is already visited
+    		if (vis[row][col]) { return false; }
+
+    		// Otherwise
+    		return true;
+	}
+
+	// Perform the breadth first search traversal
+	void PGMImageProcessor::traverse(int **grid, bool **vis, int row, int col, int h, int w) {
+
+	}
 }
