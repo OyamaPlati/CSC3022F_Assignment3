@@ -18,7 +18,7 @@ namespace pltoya001 {
 
         	public:
 			// Default Costructor
-			ConnectedComponent (int pixels, int id, std::vector<std::pair<int, int>> & coords);
+			ConnectedComponent (int pixels, int id);
 			ConnectedComponent (const ConnectedComponent & rhs); // Copy Constructor
 			ConnectedComponent (ConnectedComponent && rhs); // Move Constructor
 			// Copy and Move Assignment Operators

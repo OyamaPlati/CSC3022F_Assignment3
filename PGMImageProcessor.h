@@ -30,11 +30,14 @@ namespace pltoya001 {
 			// Write out all retained components (as foreground/background pixels)
 			// to a new PGM file
 			std::string outFileName;
+			// Matrix for input image
+			int ** inputImage;
 			// Container
 			std::queue<std::unique_ptr<ConnectedComponent>> container;
 
 		public:
-			PGMImageProcessor (const std::string inFileName, int minValidSize, int maxValidSize, unsigned char threshold, const std::string outFileName); // Default Constructor
+			// Default Constructor
+			PGMImageProcessor (const std::string inFileName, int minValidSize, int maxValidSize, unsigned char threshold, const std::string outFileName);
                 	PGMImageProcessor (const PGMImageProcessor & rhs); // Copy Constructor
                 	PGMImageProcessor (PGMImageProcessor && rhs); // Move Constructor
                 	// Copy and Move Assignment Operators
@@ -52,6 +55,8 @@ namespace pltoya001 {
 			void setThreshold (unsigned char threshold);
 			const std::string & getOutFileName ();
 			void setOutFileName (const std::string & outFileName);
+			int ** getInputImage ();
+			void setInputImage (int ** inputImage);
 			const std::queue<std::unique_ptr<ConnectedComponent>> & getContainer ();
 			void setContainer (const std::queue<std::unique_ptr<ConnectedComponent>> & container);
 

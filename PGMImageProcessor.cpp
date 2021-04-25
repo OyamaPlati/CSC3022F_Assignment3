@@ -80,6 +80,11 @@ namespace pltoya001 {
 		this->outFileName = outFileName;
 	}
 
+	int ** getInputImage () { return inputImage; }
+	void setInputImage (int ** inputImage) {
+		this->inputImage = inputImage;
+	}
+
 	/*const std::queue<std::unique_ptr<ConnectedComponent>> & PGMImageProcessor::getContainer () {
 		return container;
 	}
@@ -94,7 +99,7 @@ namespace pltoya001 {
            must be returned.
         */
         int PGMImageProcessor::extractComponents(unsigned char threshold, int minValidSize) {
-
+		
 		return 0;
 	}
 

@@ -4,10 +4,10 @@
 
 namespace pltoya001 {
 	/* Default Constructor */
-	ConnectedComponent::ConnectedComponent (int pixels, int id, std::vector<std::pair<int, int>> & coords)): pixels(pixels), id(id), coords(coords) { }
+	ConnectedComponent::ConnectedComponent (int pixels, int id, std::vector<std::pair<int, int>> & coords)): pixels(pixels), id(id) { }
 
 	/* Copy Constructor */
-	ConnectedComponent::ConnectedComponent (const ConnectedComponent & rhs): pixels(rhs.pixels), id(rhs.id), coords(rhs.coords) {}
+	ConnectedComponent::ConnectedComponent (const ConnectedComponent & rhs): pixels(rhs.pixels), id(rhs.id) {}
 
 	/* Move Constructor */
 	ConnectedComponent::ConnectedComponent (ConnectedComponent && rhs): pixels(rhs.pixels), id(rhs.id) {
