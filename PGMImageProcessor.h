@@ -101,7 +101,8 @@ namespace pltoya001 {
 			void bfs(int** inputImage, bool** vis, int si, int sj, int height, int width);
 
 			// This function returns the number connected components in an image
-			int countConnectedComponents(int** inputImage);
+			int countConnectedComponents((int** inputImage, int height, int width);
 	};
 }
+
 #endif

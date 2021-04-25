@@ -182,6 +182,25 @@ namespace pltoya001 {
 	}
 
 	// This function returns the number connected components in an image
-	int PGMImageProcessor::countConnectedComponents(int** inputImage) { return 0; }
+	int PGMImageProcessor::countConnectedComponents(int** inputImage, int height, int width) {
+		// Mark all cells as not visited
+    		bool vis[height][width];
+    		std::memset(vis, 0, sizeof(vis));
 
+    		// Call BFS for every unvisited vertex
+    		// Whenever we see an univisted vertex,
+    		// we increment res (number of islands)
+    		// also.
+    		int result = 0;
+    		for (int i = 0; i < height; i++) {
+        		for (int j = 0; j < width; j++) {
+            			if (inputImage[i][j] && !vis[i][j]) {
+                			bfs(inputImage, vis, i, j, height, width);
+                			++result;
+            			}
+        		}
+    		}
+
+		return result;
+	 }
 }
