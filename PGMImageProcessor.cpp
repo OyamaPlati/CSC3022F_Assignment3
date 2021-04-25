@@ -80,13 +80,23 @@ namespace pltoya001 {
 		this->outFileName = outFileName;
 	}
 
+	/*const std::queue<std::unique_ptr<ConnectedComponent>> & PGMImageProcessor::getContainer () {
+		return container;
+	}
+	void PGMImageProcessor::setContainer (const std::queue<std::unique_ptr<ConnectedComponent>> & container) {
+		this->container = container;
+	}*/
+
         /* Process the input image to extract all the connected components,
            based on the supplied threshold (0...255) and excluding any components
            of less than the minValidSize. The final number of components that
            you store in your container (after discarding undersized one)
            must be returned.
         */
-        int PGMImageProcessor::extractComponents(unsigned char threshold, int minValidSize) { return 0; }
+        int PGMImageProcessor::extractComponents(unsigned char threshold, int minValidSize) {
+
+		return 0;
+	}
 
         /* Iterate - with an iterator - though your container of connected
            components and filter out (remove) all the components which do not
@@ -116,35 +126,32 @@ namespace pltoya001 {
         */
         void PGMImageProcessor::printComponentData(const ConnectedComponent & theComponent) { }
 
-	// Create binary image
-	int ** PGMImageProcessor::thresholding (int ** inputImage, int threshold, int height, int width) {
-		int ** result = new int * [height];
-		for (int row = 0; row < height; ++row) {
-			result [row] = new int [width];
-			for (int col = 0; col < width; ++col) {
-				if (inputImage[row][col] < threshold) {
-					result[row][col] = 0; // black
-				}
-				else {
-					result[row][col] = 255; // white
-				}
-			}
-		}
+	// Produce the binary image
+	int ** PGMImageProcessor::binary (int** inputImage, int height, int width) {
+		// Threshold the input image and create the binary image
+                int ** result = new int * [height];
+                for (int row = 0; row < height; ++row) {
+                        result [row] = new int [width];
+                        for (int col = 0; col < width; ++col) {
+                                if (inputImage[row][col] < threshold) {
+                                        result[row][col] = 0; // black
+                                }
+                                else {
+                                        result[row][col] = 255; // white
+                                }
+                        }
+                }
+
 		return result;
 	}
 
 	// Check if a cell is to be visited or not
-	bool PGMImageProcessor::isValid(bool ** vis, int row, int col, int h, int w) {
-		// If cell lies out of bounds
-    		if (row < 0 || col < 0 || row >= h || col >= w) { return false; }
-
-    		// If cell is already visited
-    		if (vis[row][col]) { return false; }
-
-    		// Otherwise
-    		return true;
-	}
+	bool PGMImageProcessor::isValid(int** inputImage, int i, int j, bool** vis) { return false; }
 
 	// Perform the breadth first search traversal
-	void PGMImageProcessor::traverse(int **grid, bool **vis, int row, int col, int h, int w) {}
+	void PGMImageProcessor::bfs(int** inputImage, bool** vis, int si, int sj) { }
+
+	// This function returns the number connected components in an image
+	int PGMImageProcessor::countConnectedComponents(int** inputImage) { return 0; }
+
 }

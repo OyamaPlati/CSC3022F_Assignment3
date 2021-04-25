@@ -30,6 +30,9 @@ namespace pltoya001 {
 			// Write out all retained components (as foreground/background pixels)
 			// to a new PGM file
 			std::string outFileName;
+			// Container
+			std::queue<std::unique_ptr<ConnectedComponent>> container;
+
 		public:
 			PGMImageProcessor (const std::string inFileName, int minValidSize, int maxValidSize, unsigned char threshold, const std::string outFileName); // Default Constructor
                 	PGMImageProcessor (const PGMImageProcessor & rhs); // Copy Constructor
@@ -49,6 +52,8 @@ namespace pltoya001 {
 			void setThreshold (unsigned char threshold);
 			const std::string & getOutFileName ();
 			void setOutFileName (const std::string & outFileName);
+			const std::queue<std::unique_ptr<ConnectedComponent>> & getContainer ();
+			void setContainer (const std::queue<std::unique_ptr<ConnectedComponent>> & container);
 
 			/* Process the input image to extract all the connected components,
 		   	 based on the supplied threshold (0...255) and excluding any components
@@ -86,13 +91,17 @@ namespace pltoya001 {
 			*/
 			void printComponentData(const ConnectedComponent & theComponent);
 
-			// Create binary image
-			int ** thresholding (int ** inputImage, int threshold, int height, int width);
+			// Produce te binary image
+			int ** binary (int ** inputImage, int height, int width);
 
 			// Check if a cell is to be visited or not
-			bool isValid(bool ** vis, int row, int col, int h, int w);
+			bool isValid(int** inputImage, int i, int j, bool** vis);
+
 			// Perform the breadth first search traversal
-			void traverse(int **grid, bool **vis, int row, int col, int h, int w);
+			void bfs(int** inputImage, bool** vis, int si, int sj);
+
+			// This function returns the number connected components in an image
+			int countConnectedComponents(int** inputImage);
 	};
 }
 #endif
