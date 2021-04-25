@@ -98,7 +98,7 @@ namespace pltoya001 {
 			bool isValid(int** inputImage, int i, int j,int height, int width, bool** vis);
 
 			// Perform the breadth first search traversal
-			void bfs(int** inputImage, bool** vis, int si, int sj);
+			void bfs(int** inputImage, bool** vis, int si, int sj, int height, int width);
 
 			// This function returns the number connected components in an image
 			int countConnectedComponents(int** inputImage);

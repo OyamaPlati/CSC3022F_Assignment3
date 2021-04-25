@@ -151,7 +151,35 @@ namespace pltoya001 {
 	}
 
 	// Perform the breadth first search traversal
-	void PGMImageProcessor::bfs(int** inputImage, bool** vis, int si, int sj) { }
+	void PGMImageProcessor::bfs(int** inputImage, bool** vis, int si, int sj, int height, int width) {
+		// Direction vectors
+		int row[] = { -1, 0, 1, 0 };
+		int col[] = { 0, 1, 0, -1 };
+
+		// Simple BFS first step, we enqueue
+    		// source and mark it as visited
+    		std::queue<std::pair<int, int>> q;
+    		q.push(std::make_pair(si, sj));
+    		vis[si][sj] = true;
+
+    		// Next step of BFS. We take out
+    		// items one by one from queue and
+    		// enqueue their univisited adjacent
+    		while (!q.empty()) {
+
+        		int i = q.front().first;
+        		int j = q.front().second;
+        		q.pop();
+
+        		// Go through all 4 adjacent
+        		for (int k = 0; k < 4; k++) {
+            			if (isValid(inputImage, i + row[k], j + col[k], height, width, vis)) {
+             				vis[i + row[k]][j + col[k]] = true;
+             				q.push(std::make_pair(i + row[k], j + col[k]));
+            			}
+        		}
+    		}
+	}
 
 	// This function returns the number connected components in an image
 	int PGMImageProcessor::countConnectedComponents(int** inputImage) { return 0; }
