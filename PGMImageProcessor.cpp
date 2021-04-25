@@ -146,7 +146,9 @@ namespace pltoya001 {
 	}
 
 	// Check if a cell is to be visited or not
-	bool PGMImageProcessor::isValid(int** inputImage, int i, int j, bool** vis) { return false; }
+	bool PGMImageProcessor::isValid(int** inputImage, int i, int j, int height, int width, bool** vis) {
+		return (i >= 0) && (i < height) && (j >= 0) && (j < width) && (inputImage[i][j] && !vis[i][j]);
+	}
 
 	// Perform the breadth first search traversal
 	void PGMImageProcessor::bfs(int** inputImage, bool** vis, int si, int sj) { }

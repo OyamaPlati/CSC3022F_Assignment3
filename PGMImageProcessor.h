@@ -95,7 +95,7 @@ namespace pltoya001 {
 			int ** binary (int ** inputImage, int height, int width);
 
 			// Check if a cell is to be visited or not
-			bool isValid(int** inputImage, int i, int j, bool** vis);
+			bool isValid(int** inputImage, int i, int j,int height, int width, bool** vis);
 
 			// Perform the breadth first search traversal
 			void bfs(int** inputImage, bool** vis, int si, int sj);
